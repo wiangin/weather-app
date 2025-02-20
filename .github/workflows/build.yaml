@@ -27,8 +27,9 @@ jobs:
       - name: Install Cypress
         run: npm install cypress --save-dev
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Run Cypress tests e2e
+        run: npm run test:e2e
+
 
   vitest:
     runs-on: ubuntu-latest
@@ -50,4 +51,4 @@ jobs:
         run: npm install vitest --save-dev
 
       - name: Run Vitest tests
-        run: npx vitest run --coverage
+        run: npm run test:unit
