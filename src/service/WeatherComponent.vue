@@ -6,7 +6,7 @@ export default {
         };
     },
     async mounted() {
-        const url = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,apparent_temperature&timezone=Europe%2FBerlin';
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=55&longitude=13&current=temperature_2m';
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -15,6 +15,8 @@ export default {
             const result = await response.json();
 
             this.data = result;
+
+            console.log(result.current_units.temperature_2m);
         } catch (err) {
             console.error('There was an error!', err);
         }
@@ -24,10 +26,17 @@ export default {
 
 <template>
     <div v-if="data">
-      <p>Temperature: {{ data.current.temperature_2m }}</p>
-      <p>Apparent Temperature: {{ data.current.apparent_temperature }}</p>  
+      <h2>Temperature: {{ data.current.temperature_2m }} {{data.current_units.temperature_2m}}</h2>
+     
     </div>
     <div v-else>
       <p>Loading...</p>
     </div>
 </template>
+
+<style scoped>
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+</style>
