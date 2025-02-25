@@ -1,8 +1,18 @@
 <script lang="ts">
+
+interface WeatherData {
+    current: {
+        temperature_2m: number;
+    };
+    current_units: {
+        temperature_2m: string;
+    };
+}
+
 export default {
     data() {
         return {
-            data: null,
+            data: null as WeatherData | null,
         };
     },
     async mounted() {
