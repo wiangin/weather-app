@@ -26,7 +26,6 @@ export default {
 
             this.data = result;
 
-            console.log(result.current_units.temperature_2m);
         } catch (err) {
             console.error('There was an error!', err);
         }
