@@ -1,6 +1,7 @@
 
 <script setup lang="ts">
-    import WeatherComponent from '../service/WeatherComponent.vue';    
+    import WeatherComponent from '../service/WeatherComponent.vue';
+    
 </script>
 
 <template>
