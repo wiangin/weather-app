@@ -1,14 +1,9 @@
 @import './base.css';
 
 #app {
-
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   background-image: url('../assets/vader.jpg');
   background-size: cover;
 }
