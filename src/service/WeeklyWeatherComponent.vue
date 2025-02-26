@@ -31,7 +31,6 @@ export default {
 
             this.data = result;
 
-            console.log(result);
 
         } catch (err) {
             console.error('There was an error!', err);
