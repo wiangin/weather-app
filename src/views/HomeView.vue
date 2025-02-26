@@ -1,17 +1,17 @@
 
 <script setup lang="ts">
     import WeatherComponent from '../service/WeatherComponent.vue';
-    import DailyWeatherComponent from '../service/DailyWeatherComponent.vue';
+    import WeeklyWeatherComponent  from '../service/WeeklyWeatherComponent.vue';
 </script>
 
 <template>
     <div class="main"> 
         <div>
-            <WeatherComponent />
+            <WeatherComponent/>
         </div>
  
         <div>
-            <DailyWeatherComponent />
+            <WeeklyWeatherComponent/>
         </div>
     </div>
     

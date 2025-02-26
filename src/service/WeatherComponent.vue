@@ -1,4 +1,8 @@
+
+
+
 <script lang="ts">
+import LocationComponent from './LocationComponent.vue';
 
 interface WeatherData {
     current: {
@@ -10,13 +14,16 @@ interface WeatherData {
 }
 
 export default {
+    components: {
+        LocationComponent,
+    },
     data() {
         return {
             data: null as WeatherData | null,
         };
     },
     async mounted() {
-        const url = 'https://api.open-meteo.com/v1/forecast?latitude=55&longitude=13&current=temperature_2m';
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=62&longitude=15&current=temperature_2m';
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -36,6 +43,7 @@ export default {
 <template>
     <div class="today-card" v-if="data">
         <h2>Weather Today</h2>
+        <LocationComponent />
         <h2>{{ data.current.temperature_2m }} {{data.current_units.temperature_2m}}</h2>
     </div>
     <div v-else>
@@ -51,7 +59,7 @@ export default {
         margin-bottom: 2rem;
         text-align: center;
         min-width: 400px;
-        height: 400px;
+        height: 450px;
         display: flex;
         flex-direction: column;
         align-items: center;
