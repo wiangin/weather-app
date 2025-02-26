@@ -67,6 +67,5 @@ export default {
     }
     h2 {
         font-size: 3rem;
-        margin-bottom: 20px;
       }
 </style>
