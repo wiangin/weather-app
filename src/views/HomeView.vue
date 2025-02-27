@@ -2,6 +2,7 @@
 <script setup lang="ts">
     import WeatherComponent from '../service/WeatherComponent.vue';
     import WeeklyWeatherComponent  from '../service/WeeklyWeatherComponent.vue';
+    import SerchComponent from '@/service/SerchComponent.vue';
 </script>
 
 <template>
@@ -13,6 +14,10 @@
         <div>
             <WeeklyWeatherComponent/>
         </div>
+
+        <SerchComponent/>
+   
+
     </div>
     
 </template>

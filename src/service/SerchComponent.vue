@@ -1,18 +1,17 @@
-<script lang="ts">
-interface LocationData {
-    results: {
-        name: string;
-    }[];
-}
+<script>
     export default {
-        compotnets: 'LocationComponent',
+        components: 'SearchComponent',
         data() {
             return {
-                data: null as LocationData | null,
+                text: "",
             };
         },
+
+        
         async mounted() {
-            const url = 'https://geocoding-api.open-meteo.com/v1/search?name=trelleborg&count=10&language=en&format=json';
+            const url = `https://geocoding-api.open-meteo.com/v1/search?name=${this.text}&count=1`;
+            console.log(url);
+            
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -20,17 +19,19 @@ interface LocationData {
                 }
                 const result = await response.json();
 
-                this.data = result as LocationData;
-    
+                this.data = result;
+                console.log(  result);
+                
             } catch (err) {
                 console.error('There was an error!', err);
             }
         }
-    };
+    }
+
 </script>
 
 <template>
-    <div v-if="data">
-        <h2>{{ data.results[0].name }}</h2>
-    </div>
+    <input type="text" placeholder="Search" v-model="text">
+    <button @click="mounted">Search</button>
+    
 </template>
